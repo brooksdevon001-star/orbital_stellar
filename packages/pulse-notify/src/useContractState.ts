@@ -79,7 +79,7 @@ async function getLedgerEntry(
  *
  * @param rpcUrl    - Base URL of the Soroban RPC endpoint.
  * @param contractId - Soroban contract address (C…) that owns the entry.
- * @param key       - Ledger key to fetch, e.g. `"contract-data:<contractId>/<name>"`.
+ * @param key       - Ledger key to fetch, sent verbatim as the RPC `key` param.
  * @param options   - Poll interval, event-driven auto-refresh and extra RPC headers.
  * @returns The latest entry with loading/error flags and a `refetch()` trigger.
  *
@@ -87,7 +87,7 @@ async function getLedgerEntry(
  * const { data, loading, error } = useContractState<Balance>(
  *   "https://soroban-testnet.stellar.org",
  *   contractId,
- *   `contract-data:${contractId}/balance`,
+ *   ledgerKey,
  * );
  */
 export function useContractState<T = unknown>(
